@@ -1,13 +1,20 @@
 let http = require('http');
 
+let routes = {
+    "GET": {
+        "/":() => console.log("GET and Path is /"),
+        "/home":() => console.log("GET and Path is HOME")
+    },
+    "POST" : {
+        "/":() => console.log("POST and Path is /"),
+        "/about":() => console.log("POST and Path is About")
+    }
+}
+
 let start = (req,res)=>{
-    res.writeHead(200,{'Content-Type':'text/html'});
-    if(req.method == "GET"){
-        res.end("<h1>Get Request</h1>");
-    }
-    else {
-        res.end("<h1>Post request</h1>");
-    }
+   let reqMethod = req.method;
+   let path = req.url;
+   routes[reqMethod][path]();
 };
 
 let server = http.createServer(start);
