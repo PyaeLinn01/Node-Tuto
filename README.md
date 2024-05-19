@@ -1,2 +1,2 @@
 # Node-Tuto
-Just sharing Node.js lessons
+This repository contains various tutorials and code snippets related to Node.js.
